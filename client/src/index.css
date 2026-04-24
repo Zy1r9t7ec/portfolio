@@ -114,12 +114,16 @@
 }
 
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
   body {
-    @apply bg-background text-foreground font-sans;
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', sans-serif;
   }
+  
+  /* Ensure monospace elements actually use the tech font */
+  pre, code, .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
 
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),
