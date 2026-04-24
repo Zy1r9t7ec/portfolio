@@ -1,97 +1,114 @@
 import Navigation from "@/components/Navigation";
-import { ExternalLink, Github } from "lucide-react";
+import { ArrowRight, Github } from "lucide-react";
 
 const projects = [
   {
     title: "Overwatch",
     subtitle: "Autonomous DevOps Swarm",
-    description: "A 6-role multi-agent swarm system engineered for autonomous monitoring, diagnosis, and recovery of real-time application incidents. Integrated the Model Context Protocol (MCP) to execute self-healing Azure infrastructure actions with human-in-the-loop validation and LLM confidence scoring.",
-    technologies: ["Python", "FastAPI", "Docker", "Terraform", "Azure", "MCP", "Foundry API"],
-    date: "March 2026",
-    github: "https://github.com/Zy1r9t7ec/overwatch-devops"
+    description: "A 6-role multi-agent swarm system engineered for autonomous monitoring, diagnosis, and recovery of real-time application incidents. Integrated the Model Context Protocol (MCP) to execute self-healing Azure infrastructure actions with human-in-the-loop validation.",
+    technologies: ["Python", "FastAPI", "Docker", "Terraform", "Azure", "MCP"],
+    date: "2026",
+    github: "https://github.com/Zy1r9t7ec/Overwatch-guardrails"
   },
   {
     title: "ReComm",
     subtitle: "AI-Driven Return Automation",
-    description: "An automated system utilizing video analysis to verify product conditions and prevent fraud during the return process. Features an 'Inspector' agent designed to autonomously assess physical item states (e.g., powerbanks) and manage the user return workflow.",
+    description: "An automated system utilizing video analysis to verify product conditions and prevent fraud during the return process. Features an 'Inspector' agent designed to autonomously assess physical item states and manage user workflows.",
     technologies: ["Python", "Computer Vision", "Agentic Frameworks", "LLMs"],
-    date: "April 2026",
-    github: "https://github.com/Zy1r9t7ec/recomm"
+    date: "2026",
+    github: "https://github.com/Zy1r9t7ec/ReComm"
   },
   {
     title: "SCP",
     subtitle: "Secure Context Protocol",
-    description: "A secure middleware layer enabling AI Agents to execute tasks in private environments (like Gmail or Outlook) using standard OAuth2.0 permission grants. Features an extensible provider architecture supporting multiple AI frameworks with production-ready containerization.",
+    description: "A secure middleware layer enabling AI Agents to execute tasks in private environments (Gmail, Outlook) using standard OAuth2.0 permission grants. Features an extensible provider architecture supporting multiple AI frameworks.",
     technologies: ["Python", "OAuth2.0", "Flask", "Docker"],
-    date: "Aug 2025 - Sep 2025",
-    github: "https://github.com/Zy1r9t7ec/scp-protocol"
+    date: "2025",
+    github: "https://github.com/Zy1r9t7ec/SecureContext-Protocol"
   },
   {
     title: "NASA CMAPPS",
     subtitle: "Predictive Maintenance Pipeline",
-    description: "An end-to-end pipeline processing raw jet engine sensor data. Utilized unsupervised clustering and PCA to define 5 novel degradation stages. Developed hybrid regression and classification models to forecast Remaining Useful Life (RUL) and compute real-time operational risk scores.",
+    description: "End-to-end pipeline processing raw jet engine sensor data. Utilized unsupervised clustering and PCA to define degradation stages. Developed hybrid models to forecast Remaining Useful Life (RUL) and compute real-time risk scores.",
     technologies: ["Python", "Scikit-Learn", "PCA", "Machine Learning"],
-    date: "Mar 2025 - May 2025",
+    date: "2025",
     github: "https://github.com/Zy1r9t7ec/nasa-cmapps"
   }
 ];
 
 export default function Projects() {
   return (
-    <div className="min-h-screen bg-background text-foreground font-sans">
+    <div className="min-h-screen bg-[#09090b] text-[#fafafa] selection:bg-white/20">
       <Navigation />
       
-      <main className="container mx-auto px-6 py-32 max-w-5xl">
-        <div className="mb-20">
-          <h1 className="text-5xl font-bold mb-6 tracking-tight" style={{fontFamily: 'Sora'}}>
-            Selected Work
+      <main className="container mx-auto px-6 pt-48 pb-32 max-w-5xl">
+        <div className="mb-24 animate-fade-up">
+          <h1 className="text-6xl md:text-8xl font-medium tracking-tight mb-8" style={{fontFamily: 'Sora'}}>
+            Index.
           </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl leading-relaxed">
-            Real-stakes projects focusing on multi-agent architectures, secure protocols, and predictive systems.
+          <p className="text-xl md:text-2xl text-[#a1a1aa] leading-relaxed max-w-2xl font-light">
+            An archive of autonomous systems, secure protocols, and predictive pipelines built for real-world application.
           </p>
         </div>
 
-        <div className="space-y-24">
+        <div className="space-y-0 border-t border-[#27272a] animate-fade-up delay-200">
           {projects.map((project, index) => (
-            <div key={index} className="grid md:grid-cols-12 gap-8 border-t border-border/50 pt-12">
-              {/* Left Column: Title & Tech */}
-              <div className="md:col-span-4 space-y-6">
+            <div 
+              key={index} 
+              className="group grid md:grid-cols-12 gap-8 py-12 border-b border-[#27272a] hover:bg-[#0f0f11] transition-colors duration-500 px-4 -mx-4"
+            >
+              {/* Left Column: Meta & Tech */}
+              <div className="md:col-span-4 flex flex-col justify-between space-y-6">
                 <div>
-                  <h2 className="text-3xl font-bold mb-1" style={{fontFamily: 'Sora'}}>{project.title}</h2>
-                  <p className="text-muted-foreground font-medium">{project.subtitle}</p>
+                  <span className="text-sm text-[#71717a] font-mono tracking-tight block mb-2">
+                    {project.date}
+                  </span>
+                  <h3 className="text-sm font-medium tracking-widest uppercase text-[#a1a1aa]">
+                    {project.subtitle}
+                  </h3>
                 </div>
-                <div className="font-mono text-sm text-muted-foreground">
-                  {project.date}
-                </div>
-                <ul className="flex flex-wrap gap-x-4 gap-y-2 font-mono text-xs text-foreground/80">
+                <ul className="flex flex-wrap gap-x-3 gap-y-1 text-sm font-mono text-[#a1a1aa]">
                   {project.technologies.map((tech, i) => (
                     <li key={i}>{tech}</li>
                   ))}
                 </ul>
               </div>
 
-              {/* Right Column: Description & Links */}
-              <div className="md:col-span-8 flex flex-col justify-between">
-                <p className="text-lg text-muted-foreground leading-relaxed mb-8">
+              {/* Center Column: Title & Description */}
+              <div className="md:col-span-6">
+                <h2 className="text-3xl md:text-4xl font-medium mb-4 group-hover:translate-x-2 transition-transform duration-500" style={{fontFamily: 'Sora'}}>
+                  {project.title}
+                </h2>
+                <p className="text-[#a1a1aa] leading-relaxed font-light text-lg">
                   {project.description}
                 </p>
-                <div>
-                  <a 
-                    href={project.github} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wider hover:text-muted-foreground transition-colors"
-                  >
-                    <Github className="w-4 h-4" />
-                    View Repository
-                    <ExternalLink className="w-3 h-3 ml-1" />
-                  </a>
-                </div>
+              </div>
+
+              {/* Right Column: Actions */}
+              <div className="md:col-span-2 flex items-start md:justify-end mt-4 md:mt-0">
+                <a 
+                  href={project.github} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-sm font-medium tracking-wide uppercase text-white link-underline pb-1"
+                >
+                  <Github className="w-4 h-4" />
+                  Code
+                  <ArrowRight className="w-3 h-3 -rotate-45" />
+                </a>
               </div>
             </div>
           ))}
         </div>
       </main>
+
+      {/* Minimal Footer */}
+      <footer className="bg-[#09090b]">
+        <div className="container mx-auto px-6 py-12 max-w-5xl flex justify-between items-center text-[#71717a] text-sm">
+          <p>© 2026 Mayank Thakre.</p>
+          <a href="#" className="link-underline">Back to top</a>
+        </div>
+      </footer>
     </div>
   );
 }
