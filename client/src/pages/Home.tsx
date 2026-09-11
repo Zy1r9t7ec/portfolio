@@ -146,7 +146,6 @@ export default function Home() {
       >
         <div className="container mx-auto px-6 py-24 max-w-5xl grid md:grid-cols-12 gap-12">
           <div className="md:col-span-4">
-            <h2 className="text-xs font-mono tracking-widest uppercase text-[#888888]">Featured Work</h2>
             <h2 className="text-xs font-mono tracking-widest uppercase text-[#888888]">Featured Archive</h2>
           </div>
           <div className="md:col-span-8 grid sm:grid-cols-2 gap-8">
