@@ -1,7 +1,25 @@
 import Navigation from "@/components/Navigation";
+import BackToTop from "@/components/BackToTop";
 import { ArrowRight, Github } from "lucide-react";
+import { motion, Variants } from "framer-motion";
 
 const projects = [
+  {
+    title: "EasyWebinar AI Voice Agent",
+    subtitle: "Telephony AI Voice Agent",
+    description: "Production-ready inbound and outbound AI voice agent handling 10 diverse workflows (cart abandonment, VIP agenda building, FAQ RAG support). Engineered with Telnyx Voice API (Call Control + Media Streaming) and Pipecat to eliminate third-party SIP bridge latency.",
+    technologies: ["Python", "Pipecat", "Telnyx", "RAG", "Pytest"],
+    date: "2026",
+    github: "https://github.com/Mayank-ew/Calling-Agent-"
+  },
+  {
+    title: "AI Avatar Pipeline",
+    subtitle: "Serverless Video Generation",
+    description: "Automated talking-head video generation pipeline deployed on Modal. Synthesizes host scripts via Groq (gpt-oss-120b), generates speech (Fish Audio), and lip-syncs expressive avatars using the Wan2.2-S2V video diffusion model.",
+    technologies: ["Python", "Modal", "Wan2.2", "Groq", "Fish Audio"],
+    date: "2026",
+    github: "https://github.com/Mayank-ew/AI-avatar"
+  },
   {
     title: "Overwatch",
     subtitle: "Autonomous DevOps Swarm",
@@ -27,47 +45,119 @@ const projects = [
     github: "https://github.com/Zy1r9t7ec/SecureContext-Protocol"
   },
   {
+    title: "TerraMind",
+    subtitle: "Methane Emission Tracker",
+    description: "Machine learning notebooks analyzing environmental data. Includes the implementation of a TinyUNet model for predictive geospatial processing and methane emission tracking.",
+    technologies: ["Python", "Jupyter", "PyTorch", "ML"],
+    date: "Apr 2026",
+    github: "https://github.com/Zy1r9t7ec/methane-tracker"
+  },
+  {
+    title: "Local RAG Pipeline",
+    subtitle: "Privacy-First Document Retrieval",
+    description: "A completely localized Retrieval-Augmented Generation (RAG) pipeline prioritizing privacy and efficiency, built using Ollama for local inference and ChromaDB for vector storage.",
+    technologies: ["Python", "Ollama", "ChromaDB", "RAG"],
+    date: "Mar 2026",
+    github: "https://github.com/Zy1r9t7ec/b5_basic_RAG"
+  },
+  {
+    title: "Annotator Disagreement CIFAR-10",
+    subtitle: "Noisy Label Research",
+    description: "Contributed to computer vision research focusing on model robustness against noisy data. Trained and evaluated models on the CIFAR-10 dataset using techniques designed to mitigate the impact of simulated annotator disagreement and improve generalization.",
+    technologies: ["Python", "PyTorch", "Computer Vision", "Deep Learning"],
+    date: "2025",
+    github: "https://github.com/MarkVI2/annotater-disagreement-cifar10"
+  },
+  {
+    title: "Drug Discovery Pipeline",
+    subtitle: "Computational Analysis",
+    description: "Contributed to an ML-driven platform aimed at accelerating the drug discovery process. Focused on building computational tools and interfaces required for researchers to evaluate molecular compounds and experimental data.",
+    technologies: ["Python", "Machine Learning", "Bioinformatics"],
+    date: "2025",
+    github: "https://github.com/bluebell2505/drug-testing-ai"
+  },
+  {
     title: "NASA CMAPPS",
     subtitle: "Predictive Maintenance Pipeline",
     description: "End-to-end pipeline processing raw jet engine sensor data. Utilized unsupervised clustering and PCA to define degradation stages. Developed hybrid models to forecast Remaining Useful Life (RUL) and compute real-time risk scores.",
     technologies: ["Python", "Scikit-Learn", "PCA", "Machine Learning"],
     date: "2025",
     github: "https://github.com/Zy1r9t7ec/nasa-cmapps"
+  },
+  {
+    title: "Employee Leave Manager",
+    subtitle: "Full-Stack HR Platform",
+    description: "A robust web application for managing employee leave requests featuring role-based access control (Employee, Manager, HR Admin). Integrates automated email notifications and detailed reporting systems.",
+    technologies: ["React", "Node.js", "MongoDB", "Express"],
+    date: "May 2026",
+    github: "https://github.com/Zy1r9t7ec/Employee-Leave-Manager"
+  },
+  {
+    title: "Internship & Skill Tracker",
+    subtitle: "Progression Mapping Tool",
+    description: "A specialized tracker for mapping evidence to skills, incorporating a decay calculation system to accurately reflect skill retention and growth over time.",
+    technologies: ["TypeScript"],
+    date: "Apr 2026",
+    github: "https://github.com/Zy1r9t7ec/Internship-Skill-Tracker"
   }
 ];
 
 export default function Projects() {
+  const container: Variants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: { staggerChildren: 0.05, delayChildren: 0.1 }
+    }
+  };
+
+  const item: Variants = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 300, damping: 24 } }
+  };
+
   return (
-    <div className="min-h-screen bg-[#09090b] text-[#fafafa] selection:bg-white/20">
+    <div className="min-h-screen bg-[#0A0A0A] text-[#FFFFFF] selection:bg-white/20">
       <Navigation />
       
       <main className="container mx-auto px-6 pt-48 pb-32 max-w-5xl">
-        <div className="mb-24 animate-fade-up">
-          <h1 className="text-6xl md:text-8xl font-medium tracking-tight mb-8" style={{fontFamily: 'Sora'}}>
-            Index.
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="mb-24"
+        >
+          <h1 className="text-5xl md:text-7xl font-serif tracking-tight mb-8">
+            Archive.
           </h1>
-          <p className="text-xl md:text-2xl text-[#a1a1aa] leading-relaxed max-w-2xl font-light">
-            An archive of autonomous systems, secure protocols, and predictive pipelines built for real-world application.
+          <p className="text-lg md:text-xl text-[#888888] leading-relaxed max-w-2xl font-light">
+            A comprehensive ledger of autonomous systems, secure protocols, generative pipelines, and ML experiments.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="space-y-0 border-t border-[#27272a] animate-fade-up delay-200">
+        <motion.div 
+          variants={container}
+          initial="hidden"
+          animate="show"
+          className="space-y-0 border-t border-[#1F1F1F]"
+        >
           {projects.map((project, index) => (
-            <div 
+            <motion.div 
+              variants={item}
               key={index} 
-              className="group grid md:grid-cols-12 gap-8 py-12 border-b border-[#27272a] hover:bg-[#0f0f11] transition-colors duration-500 px-4 -mx-4"
+              className="group grid md:grid-cols-12 gap-8 py-12 border-b border-[#1F1F1F] hover:bg-[#0C0C0C] transition-colors duration-500 px-4 -mx-4 rounded-sm"
             >
               {/* Left Column: Meta & Tech */}
-              <div className="md:col-span-4 flex flex-col justify-between space-y-6">
+              <div className="md:col-span-3 flex flex-col justify-between space-y-6">
                 <div>
-                  <span className="text-sm text-[#71717a] font-mono tracking-tight block mb-2">
+                  <span className="text-xs text-[#555555] font-mono tracking-tight block mb-2">
                     {project.date}
                   </span>
-                  <h3 className="text-sm font-medium tracking-widest uppercase text-[#a1a1aa]">
+                  <h3 className="text-xs font-mono tracking-widest uppercase text-[#888888]">
                     {project.subtitle}
                   </h3>
                 </div>
-                <ul className="flex flex-wrap gap-x-3 gap-y-1 text-sm font-mono text-[#a1a1aa]">
+                <ul className="flex flex-wrap gap-x-3 gap-y-2 text-xs font-mono text-[#555555]">
                   {project.technologies.map((tech, i) => (
                     <li key={i}>{tech}</li>
                   ))}
@@ -75,11 +165,11 @@ export default function Projects() {
               </div>
 
               {/* Center Column: Title & Description */}
-              <div className="md:col-span-6">
-                <h2 className="text-3xl md:text-4xl font-medium mb-4 group-hover:translate-x-2 transition-transform duration-500" style={{fontFamily: 'Sora'}}>
+              <div className="md:col-span-7">
+                <h2 className="text-2xl md:text-3xl font-serif mb-4 group-hover:translate-x-2 transition-transform duration-500">
                   {project.title}
                 </h2>
-                <p className="text-[#a1a1aa] leading-relaxed font-light text-lg">
+                <p className="text-[#888888] leading-relaxed font-light text-base">
                   {project.description}
                 </p>
               </div>
@@ -90,25 +180,25 @@ export default function Projects() {
                   href={project.github} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-sm font-medium tracking-wide uppercase text-white link-underline pb-1"
+                  className="flex items-center gap-2 text-xs font-mono tracking-wide uppercase text-white hover:opacity-70 transition-opacity pb-1"
                 >
                   <Github className="w-4 h-4" />
                   Code
                   <ArrowRight className="w-3 h-3 -rotate-45" />
                 </a>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </main>
 
-      {/* Minimal Footer */}
-      <footer className="bg-[#09090b]">
-        <div className="container mx-auto px-6 py-12 max-w-5xl flex justify-between items-center text-[#71717a] text-sm">
-          <p>© 2026 Mayank Thakre.</p>
-          <a href="#" className="link-underline">Back to top</a>
+      <footer className="bg-[#0A0A0A]">
+        <div className="container mx-auto px-6 py-12 max-w-5xl flex justify-between items-center text-[#555555] text-xs font-mono border-t border-[#1F1F1F]">
+          <p>© {new Date().getFullYear()} Mayank Thakre.</p>
         </div>
       </footer>
+      
+      <BackToTop />
     </div>
   );
 }

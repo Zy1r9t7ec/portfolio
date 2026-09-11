@@ -1,56 +1,40 @@
 @import "tailwindcss";
 
+@theme {
+  --font-sans: 'Inter', sans-serif;
+  --font-serif: 'Newsreader', serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --color-background: #0A0A0A;
+  --color-foreground: #FFFFFF;
+  --color-muted: #888888;
+  --color-border: #1F1F1F;
+}
+
 @layer base {
   :root, .dark {
-    --background: 240 10% 4%; 
-    --foreground: 0 0% 98%; 
-    --card: 240 5% 8%;
-    --card-foreground: 0 0% 98%;
-    --primary: 0 0% 98%; 
-    --primary-foreground: 240 5.9% 10%;
-    --muted: 240 4% 16%;
-    --muted-foreground: 240 5% 65%;
-    --border: 240 6% 15%;
-    --radius: 1rem;
+    --background: 0 0% 4%;
+    --foreground: 0 0% 100%;
+    --muted: 0 0% 53%;
+    --border: 0 0% 12%;
   }
   
   body {
-    background-color: #09090b;
-    color: #fafafa;
+    background-color: var(--color-background);
+    color: var(--color-foreground);
     font-family: 'Inter', sans-serif;
     -webkit-font-smoothing: antialiased;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Sora', sans-serif;
+  .font-serif {
+    font-family: 'Newsreader', serif;
   }
 
-  pre, code, .font-mono {
+  .font-mono {
     font-family: 'JetBrains Mono', monospace;
   }
 }
 
-/* Animations */
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fade-up {
-  animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  opacity: 0; 
-}
-
-.delay-100 { animation-delay: 100ms; }
-.delay-200 { animation-delay: 200ms; }
-.delay-300 { animation-delay: 300ms; }
-
+/* Animations handled by framer-motion mostly, but keep link-underline */
 .link-underline {
   position: relative;
   text-decoration: none;
@@ -61,7 +45,7 @@
   width: 100%;
   transform: scaleX(0);
   height: 1px;
-  bottom: -2px;
+  bottom: -4px;
   left: 0;
   background-color: currentColor;
   transform-origin: bottom right;
